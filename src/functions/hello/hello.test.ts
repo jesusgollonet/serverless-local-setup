@@ -1,12 +1,10 @@
-function sum(a: number, b: number) {
-  return a + b;
-}
+import hello from "./hello";
 
-describe("sum module", () => {
-  test("adds 1 + 2 to equal 3", () => {
-    expect(sum(1, 2)).toBe(3);
+describe("hello module", () => {
+  test("should return a string", () => {
+    expect(typeof hello("world")).toBe("string");
   });
-  test("adds 1 + 2 to equal 3", () => {
-    expect(sum(1, 2)).toBe(3);
+  test("should return a string with the name", () => {
+    expect(hello("world")).toBe("Hello world");
   });
 });
