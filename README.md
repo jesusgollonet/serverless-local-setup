@@ -11,3 +11,34 @@ These are a few of the non exclusive solutions for local serverless development:
 - separating business logic from handlers
 - TDD 
 
+
+## Workflow 
+
+  Initial list
+
+  1. think of a feature
+  2. quick diagram (overkill for single function features) 
+  3. create function scaffold
+  4. create test
+  5. implement function
+
+  Though this way of working makes me want to do a schematic upfront
+
+## How to run
+
+So far we can do 2 things
+
+1. run tests
+``
+yarn test 
+```
+
+2. invoke local function with a json mock
+
+```
+npx sls invoke local -f hello --path src/functions/hello/mock.json
+```
+
+
+
+
