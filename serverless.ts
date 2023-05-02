@@ -1,6 +1,7 @@
 import type { AWS } from "@serverless/typescript";
 
 import hello from "@functions/hello";
+import generate from "@functions/generate";
 
 const serverlessConfiguration: AWS = {
   service: "jgb-openai-test",
@@ -19,7 +20,7 @@ const serverlessConfiguration: AWS = {
     },
   },
   // import the function via paths
-  functions: { hello },
+  functions: { hello, generate },
   package: { individually: true },
   custom: {
     esbuild: {
