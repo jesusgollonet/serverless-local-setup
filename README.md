@@ -29,6 +29,7 @@ These are a few of the non exclusive solutions for local serverless development:
 So far we can do 2 things
 
 1. run tests
+
 ``
 yarn test 
 ```
