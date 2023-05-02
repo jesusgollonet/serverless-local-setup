@@ -3,9 +3,9 @@ import type { AWS } from "@serverless/typescript";
 import hello from "@functions/hello";
 
 const serverlessConfiguration: AWS = {
-  service: "service-sls-local",
+  service: "jgb-openai-test",
   frameworkVersion: "3",
-  plugins: ["serverless-esbuild"],
+  plugins: ["serverless-esbuild", "serverless-better-credentials"],
   provider: {
     name: "aws",
     runtime: "nodejs14.x",
