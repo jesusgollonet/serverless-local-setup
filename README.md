@@ -11,6 +11,39 @@ These are a few of the non exclusive solutions for local serverless development:
 - separating business logic from handlers
 - TDD 
 
+## How to use environment variables
+
+We're currently using the serverless ssm integration. 
+
+1. create the variable in [SSM Parameter Store](https://us-east-1.console.aws.amazon.com/systems-manager/parameters?region=us-east-1) (I've done it manually)
+
+2. Add your variable to `serverless.ts`
+
+```typescript
+const serverlessConfiguration: AWS = {
+    provider:{
+        environment: {
+            OPENAI_API_KEY: "${ssm(${aws:region})?/sls-local-test/openai/api_key}"
+         }
+     }
+}
+```
+
+3. use it in your code
+
+```javascript
+const OPENAI_API_KEY=process.env.OPENAI_API_KEY
+```
+
+4. in order to use the variable within serverless invoke local you need to pass
+   it as -e to your invokation
+
+```bash
+ npx sls invoke local -f generate -e OPENAI_API_KEY=$OPENAI_API_KEY --path
+ src/functions/generate/mock.json
+```
+
+
 
 ## Workflow 
 
